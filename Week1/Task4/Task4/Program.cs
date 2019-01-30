@@ -10,15 +10,15 @@ namespace Task4
     {
         static void Main(string[] args)
         {
-            string a = Console.ReadLine();
-            int aa = int.Parse(a);
-            for (int i = 0; i < aa; ++i)
+            string a = Console.ReadLine();//reading line which is string for programm
+            int aa = int.Parse(a);//turning line into integer(we know exactly there is a number)
+            for (int i = 0; i < aa; ++i)//loop which means lines
             {
-                for (int j = 0; j < i+1; ++j)
+                for (int j = 0; j < i+1; ++j)//loop which means quantity of [*]
                 {
-                    Console.Write("[*]");
+                    Console.Write("[*]");//writing [*]
                 }
-                Console.WriteLine();
+                Console.WriteLine();//going to another line
             }
         }
     }
