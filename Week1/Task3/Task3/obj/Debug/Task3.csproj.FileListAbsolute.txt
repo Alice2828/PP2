@@ -5,3 +5,10 @@ C:\Users\ASUS\Desktop\Proga2\Task3\Task3\bin\Debug\Task3.exe
 C:\Users\ASUS\Desktop\Proga2\Task3\Task3\bin\Debug\Task3.pdb
 C:\Users\ASUS\Desktop\Proga2\Task3\Task3\obj\Debug\Task3.exe
 C:\Users\ASUS\Desktop\Proga2\Task3\Task3\obj\Debug\Task3.pdb
+C:\Users\ASUS\Desktop\PP2\Week1\Task3\Task3\bin\Debug\Task3.exe.config
+C:\Users\ASUS\Desktop\PP2\Week1\Task3\Task3\bin\Debug\Task3.exe
+C:\Users\ASUS\Desktop\PP2\Week1\Task3\Task3\bin\Debug\Task3.pdb
+C:\Users\ASUS\Desktop\PP2\Week1\Task3\Task3\obj\Debug\Task3.csprojAssemblyReference.cache
+C:\Users\ASUS\Desktop\PP2\Week1\Task3\Task3\obj\Debug\Task3.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\PP2\Week1\Task3\Task3\obj\Debug\Task3.exe
+C:\Users\ASUS\Desktop\PP2\Week1\Task3\Task3\obj\Debug\Task3.pdb

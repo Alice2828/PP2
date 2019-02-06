@@ -8,26 +8,42 @@ namespace Task2
 {
     class Student         //creating a new structure named "Student"
     {
+       
         public string name;   //adding parametrs (name) 
         public string id;//adding id
         public string year;//adding year
-        public void PrintInfo()       //the method
-          {
-            int yyear = int.Parse(year)+1; //increasing the year
-            Console.WriteLine(name+" "+id+" "+yyear); // to write(to access) name, id and increment the year of study
+        public Student(string n,string i)
+        {
+            name = n;
+            id = i;
+            year ="1";
         }
-
-     }
+        public void PrintInfo()       //the method
+        {
+            
+            Console.WriteLine(name+" "+id+" "+year); // to write(to access) name, id and increment the year of study
+        }
+        public void Increment()
+        {
+             year = (int.Parse(year) + 1).ToString(); //increasing the year
+        }
+    }
 
     class Program
     {
         static void Main(string[] args)
         {
-            Student s = new Student();   //creating an example pf the structure Student
-            s.name = Console.ReadLine(); // reading name
-           s.id =Console.ReadLine();// reading id
-            s.year = Console.ReadLine();// reading year
-            s.PrintInfo(); //calling the method of printing information
+           string name = Console.ReadLine(); // reading name
+            string id = Console.ReadLine();// reading id
+           
+            Student s = new Student(name,id);   //creating an example pf the structure Student
+
+           
+                s.PrintInfo(); //calling the method of printing information
+            
+                s.Increment();
+            s.PrintInfo();
+            Console.ReadKey();
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Task4
                 }
                 Console.WriteLine();//going to another line
             }
+            Console.ReadKey();
         }
     }
 }

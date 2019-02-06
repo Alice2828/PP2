@@ -4,3 +4,9 @@ C:\Users\ASUS\Desktop\Proga2\Task4\Task4\bin\Debug\Task4.pdb
 C:\Users\ASUS\Desktop\Proga2\Task4\Task4\obj\Debug\Task4.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Desktop\Proga2\Task4\Task4\obj\Debug\Task4.exe
 C:\Users\ASUS\Desktop\Proga2\Task4\Task4\obj\Debug\Task4.pdb
+C:\Users\ASUS\Desktop\PP2\Week1\Task4\Task4\bin\Debug\Task4.exe.config
+C:\Users\ASUS\Desktop\PP2\Week1\Task4\Task4\bin\Debug\Task4.exe
+C:\Users\ASUS\Desktop\PP2\Week1\Task4\Task4\bin\Debug\Task4.pdb
+C:\Users\ASUS\Desktop\PP2\Week1\Task4\Task4\obj\Debug\Task4.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\PP2\Week1\Task4\Task4\obj\Debug\Task4.exe
+C:\Users\ASUS\Desktop\PP2\Week1\Task4\Task4\obj\Debug\Task4.pdb
