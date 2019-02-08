@@ -29,6 +29,8 @@ namespace Task3
                 Lol(d, l + 1);
             }
         }
+
+
         static void Main(string[] args)
         {
             DirectoryInfo dir = new DirectoryInfo("C:/Users/ASUS/Desktop/PP2/Week2/Task3/Папка");

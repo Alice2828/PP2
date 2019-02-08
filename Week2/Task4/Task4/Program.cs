@@ -26,13 +26,13 @@ namespace Task4
                 string sourceFile = System.IO.Path.Combine(sourcePath, fileName);// Use Path class to manipulate file and directory paths.
                 string destFile = System.IO.Path.Combine(targetPath, fileName);
                
-                if (!System.IO.Directory.Exists(targetPath))   // coping a folder's contents to a new location:
+                if (!System.IO.Directory.Exists(targetPath))   // cheking if the target directory exists
                 {
                     System.IO.Directory.CreateDirectory(targetPath);
                 }
 
                 
-                System.IO.File.Copy(sourceFile, destFile, true); // To copy a file to another location and 
+                System.IO.File.Copy(sourceFile, destFile, true); // coping a folder's contents to a new location:
             }
 
             string f = Console.ReadLine(); //again read key-word
