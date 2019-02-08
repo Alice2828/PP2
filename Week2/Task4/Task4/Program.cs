@@ -46,7 +46,7 @@ namespace Task4
                     // opened by another process.
                     try
                     {
-                        System.IO.File.Delete("C:/Users/ASUS/Desktop/PP2/Week2/Task4/path1/1.txt");
+                        System.IO.File.Delete("C:/Users/ASUS/Desktop/PP2/Week2/Task4/path/1.txt");
                     }
                     catch (System.IO.IOException e)
                     {
