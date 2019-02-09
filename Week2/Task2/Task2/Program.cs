@@ -9,7 +9,7 @@ namespace Task2
 {
     class Program
     {
-        static bool isPrime(string i)  //creating a method which returns true or false due to results of testing member of string array
+        static bool IsPrime(string i)  //creating a method which returns true or false due to results of testing member of string array
         {
 
             int x = int.Parse(i);//turning a member of string array into integer
@@ -36,7 +36,7 @@ namespace Task2
               
             foreach (var x in nums)//for each member use the method and if it is true add it to the res array
             {
-                if (isPrime(x))
+                if (IsPrime(x))
                 {
                     res.Add(x);
                 }

@@ -15,7 +15,7 @@ namespace Task3
                 Console.Write("     ");
         }
 
-        public static void Lol(DirectoryInfo dir, int l)
+        public static void Check(DirectoryInfo dir, int l)
         {
             foreach (FileInfo f in dir.GetFiles())
             {
@@ -26,7 +26,7 @@ namespace Task3
             {
                 PrintSpaces(l);
                 Console.WriteLine(d.Name);
-                Lol(d, l + 1);
+                Check(d, l + 1);
             }
         }
 
@@ -34,7 +34,7 @@ namespace Task3
         static void Main(string[] args)
         {
             DirectoryInfo dir = new DirectoryInfo("C:/Users/ASUS/Desktop/PP2/Week2/Task3/Папка");
-            Lol(dir, 0);
+            Check(dir, 0);
             Console.ReadKey();
         }
     }
