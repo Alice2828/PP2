@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace Task4
     {
         static void Main(string[] args)
         {//creating a 1.txt file with words through the streamwriter
-            System.IO.StreamWriter textFile = new System.IO.StreamWriter("C:/Users/ASUS/Desktop/PP2/Week2/Task4/path/1.txt");
+            StreamWriter textFile = new StreamWriter("C:/Users/ASUS/Desktop/PP2/Week2/Task4/path/1.txt");
             textFile.WriteLine("Hello World!");
             textFile.WriteLine("And goodbye");
             textFile.Close();
@@ -26,13 +27,13 @@ namespace Task4
                 string sourceFile = System.IO.Path.Combine(sourcePath, fileName);// Use Path class to manipulate file and directory paths.
                 string destFile = System.IO.Path.Combine(targetPath, fileName);
                
-                if (!System.IO.Directory.Exists(targetPath))   // cheking if the target directory exists
+                if (!Directory.Exists(targetPath))   // cheking if the target directory exists
                 {
-                    System.IO.Directory.CreateDirectory(targetPath);
+                    Directory.CreateDirectory(targetPath);
                 }
 
                 
-                System.IO.File.Copy(sourceFile, destFile, true); // coping a folder's contents to a new location:
+                File.Copy(sourceFile, destFile, true); // coping a folder's contents to a new location:
             }
 
             string f = Console.ReadLine(); //again read key-word
