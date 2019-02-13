@@ -24,8 +24,8 @@ namespace Task4
                 string sourcePath = "C:/Users/ASUS/Desktop/PP2/Week2/Task4/path";
                 string targetPath = "C:/Users/ASUS/Desktop/PP2/Week2/Task4/path1";
 
-                string sourceFile = System.IO.Path.Combine(sourcePath, fileName);// Use Path class to manipulate file and directory paths.
-                string destFile = System.IO.Path.Combine(targetPath, fileName);
+                string sourceFile = Path.Combine(sourcePath, fileName);// Use Path class to manipulate file and directory paths.
+                string destFile =Path.Combine(targetPath, fileName);
                
                 if (!Directory.Exists(targetPath))   // cheking if the target directory exists
                 {
@@ -40,16 +40,16 @@ namespace Task4
             if (f=="delete")
             {
                 // Delete a file by using File class static method...
-                if (System.IO.File.Exists("C:/Users/ASUS/Desktop/PP2/Week2/Task4/path1/1.txt"))
+                if (File.Exists("C:/Users/ASUS/Desktop/PP2/Week2/Task4/path1/1.txt"))
                 {
                     // Use a try block to catch IOExceptions, to
                     // handle the case of the file already being
                     // opened by another process.
                     try
                     {
-                        System.IO.File.Delete("C:/Users/ASUS/Desktop/PP2/Week2/Task4/path/1.txt");
+                        File.Delete("C:/Users/ASUS/Desktop/PP2/Week2/Task4/path/1.txt");
                     }
-                    catch (System.IO.IOException e)
+                    catch (IOException e)
                     {
                         Console.WriteLine(e.Message);
                         return;
