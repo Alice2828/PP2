@@ -69,7 +69,7 @@ namespace FarManager2
     {
         static void Main(string[] args)
         {
-            DirectoryInfo root = new DirectoryInfo(@"C:\Users\ASUS\Desktop\PP2\Week3\Path");//получаем информацию из нужной папки
+            DirectoryInfo root = new DirectoryInfo(@"C:\Program Files");//получаем информацию из нужной папки
             Stack<Layer> history = new Stack<Layer>();//создаем новый пустой стек типа "слой"
             FarMode farMode = FarMode.DirectoryView;//фармод работает с enum и сейчас переменная равна 1
 
