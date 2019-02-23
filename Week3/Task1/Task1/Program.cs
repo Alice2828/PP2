@@ -42,18 +42,27 @@ namespace FarManager2
 
         public void Draw() //это метод который помогает нам с формлением слоя
         {
-            Console.BackgroundColor = ConsoleColor.Black;// фон черный
+            Console.BackgroundColor = ConsoleColor.Blue;// фон черный
             Console.Clear();//каждый раз очищение предыдущего вывода на экран для нового слоя
             for (int i = 0; i < Content.Length; ++i)// здесь цикл от 0 до последней строчки
             {
                 if (i == SelectedItem)//когда итератор равен номеру выбранной строки
                 {
-                    Console.BackgroundColor = ConsoleColor.Blue;//фон строки становится голубым
+                    Console.BackgroundColor = ConsoleColor.Red;//фон строки становится голубым
                 }
                 else
                 {
-                    Console.BackgroundColor = ConsoleColor.Black;//если нет, то он черный
+                    Console.BackgroundColor = ConsoleColor.Blue;//если нет, то он черный
                 }
+                if (Content[i].GetType() == typeof(DirectoryInfo))
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Black;
+                }
+                    
                 Console.WriteLine(Content[i].Name);//а на слое написан список папок и файлов в данной директории
             }
         }
@@ -69,7 +78,7 @@ namespace FarManager2
     {
         static void Main(string[] args)
         {
-            DirectoryInfo root = new DirectoryInfo(@"C:\Program Files");//получаем информацию из нужной папки
+            DirectoryInfo root = new DirectoryInfo(@"C:\Users\ASUS\Desktop\PP2\Week3\Path");//получаем информацию из нужной папки
             Stack<Layer> history = new Stack<Layer>();//создаем новый пустой стек типа "слой"
             FarMode farMode = FarMode.DirectoryView;//фармод работает с enum и сейчас переменная равна 1
 
@@ -185,6 +194,20 @@ namespace FarManager2
 
                         }
                        break;
+                    case ConsoleKey.Escape:
+                        int x4 = history.Peek().SelectedItem;//номер строки
+                        FileSystemInfo fileSystemInfo4 = history.Peek().Content[x4];
+                        FileInfo p = fileSystemInfo4 as FileInfo;
+                        string sourcefolder= p.Directory.FullName;
+                        string targetfolder = @"C:\Users\ASUS\Desktop\PP2\Week3\Path\Папка\Папка 2";
+
+                        string t = Path.Combine(sourcefolder,p.Name);
+                        string k = Path.Combine(targetfolder,p.Name);
+
+                        File.Copy(t,k);
+
+                        break;
+
                 }
             }
         }
