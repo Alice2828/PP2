@@ -101,7 +101,17 @@ class Program
         XmlSerializer xs = new XmlSerializer(typeof(List<Mark>));
         xs.Serialize(fs, marks);
         fs.Close();
-    }
+
+
+            FileStream f = new FileStream(@"C:\Users\ASUS\Desktop\PP2\Week4\Task2\students.xml", FileMode.Open, FileAccess.Read);
+            XmlSerializer x = new XmlSerializer(typeof(List<Mark>));
+            List<Mark> m = x.Deserialize(f) as List<Mark>;
+           foreach(Mark i in m)
+            {
+                Console.WriteLine(i);
+            }
+            f.Close();
+        }
 }
 }
 
