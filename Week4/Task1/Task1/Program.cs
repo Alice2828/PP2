@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 
 namespace Task1
 {
+    [Serializable]
     public class Number
     {
         public double a;
@@ -19,7 +20,7 @@ namespace Task1
         public void PrintInfo()
         {
             
-            Console.WriteLine(a.ToString,"+",b.ToString,"i");
+            Console.WriteLine($"{a} + {b} i");
         }
     }
     class Program

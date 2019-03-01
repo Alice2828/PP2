@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 
 namespace Task2
 {
+    [Serializable]
    public class Mark
    {
         public string Points
@@ -84,12 +85,20 @@ class Program
     static void Main(string[] args)
     {
         List<Mark> marks = new List<Mark>();
-            Mark s1 = new Mark();
-          Mark s2= new Mark();
-            Mark s3= new Mark();
-            s1.Points = "70";
-            s2.Points = "100";
-            s3.Points = "0";
+            Mark s1 = new Mark
+            {
+                Points = "70"
+            };
+          Mark s2= new Mark
+          {
+              Points = "100"
+          };
+            Mark s3= new Mark
+            {
+                Points = "0"
+            };
+
+           
             s1.GetLetter();
             s2.GetLetter();
             s3.GetLetter();
