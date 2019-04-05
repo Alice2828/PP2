@@ -16,6 +16,7 @@ namespace Snake
         Wall wall = new Wall('#');
         Food food = new Food('@');
         int level = 1;
+        int speed = 1;
        
         public GameState()
         {
@@ -25,14 +26,14 @@ namespace Snake
             Console.SetBufferSize(40, 40);
             food.Generate(worm.body, wall.body);
         }
-        public void Run()
+        /*public void Run()
         {
             ThreadStart action = new ThreadStart(ChangeFrame);
             Thread task = new Thread(action);
             task.Start();
             food.Draw();
             wall.Draw();
-        }
+        }*/
         public void Run2()
         {
             timer.Elapsed += Timer_Elapsed;
@@ -94,18 +95,18 @@ namespace Snake
             {
                 case ConsoleKey.UpArrow:
                     worm.Dx = 0;
-                    worm.Dy = -1;
+                    worm.Dy = -speed;
                     break;
                 case ConsoleKey.DownArrow:
                     worm.Dx = 0;
-                    worm.Dy = 1;
+                    worm.Dy = speed;
                     break;
                 case ConsoleKey.LeftArrow:
-                    worm.Dx = -1;
+                    worm.Dx = -speed;
                     worm.Dy = 0;
                     break;
                 case ConsoleKey.RightArrow:
-                    worm.Dx = 1;
+                    worm.Dx = speed;
                     worm.Dy = 0;
                     break;
                 case ConsoleKey.Spacebar:
@@ -127,6 +128,7 @@ namespace Snake
                     food.Generate(wall.body, worm.body);
                     food.Draw();
                     level = 2;
+                    
                     break;
                 case ConsoleKey.F3:
                     Console.Clear();
@@ -137,6 +139,7 @@ namespace Snake
                     food.Draw();
                     food.Generate(wall.body, worm.body);
                     level = 3;
+                    speed = 2;
                     break;
             }
 
@@ -150,15 +153,17 @@ namespace Snake
         void ShowStatusBar(string message)
         {
             this.message = message;
-            //Console.SetCursorPosition(10, 37);
-            //Console.Write(message);
-        }
+           /* Console.SetCursorPosition(10, 37);
+            Console.Write(message);
+    */    
+    }
 
         void ShowStatusBar2(string message)
         {
             this.message2 = message;
-            //Console.SetCursorPosition(10, 38);
-            //Console.Write(message);
+          /*  Console.SetCursorPosition(10, 38);
+            Console.Write(message);
+            */
         }
         void CheckColision()
         {
