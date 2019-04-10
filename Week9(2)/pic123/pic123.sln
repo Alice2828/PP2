@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pic123", "pic123\pic123.csproj", "{B1EE3B70-D4B8-4B3D-8AB9-2B34F27C8B4C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1EE3B70-D4B8-4B3D-8AB9-2B34F27C8B4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1EE3B70-D4B8-4B3D-8AB9-2B34F27C8B4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1EE3B70-D4B8-4B3D-8AB9-2B34F27C8B4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1EE3B70-D4B8-4B3D-8AB9-2B34F27C8B4C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DAD983C0-A3C3-4918-9CD4-B79A7B0DAA88}
+	EndGlobalSection
+EndGlobal
