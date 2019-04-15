@@ -25,6 +25,7 @@ namespace pic123
 
             GraphicsPath path = new GraphicsPath();
             GraphicsPath path2 = new GraphicsPath();
+            GraphicsPath path3 = new GraphicsPath();
             Point[] point =
             {
                 new Point(40, 60),
@@ -36,6 +37,19 @@ namespace pic123
                 new Point(40, 100),
                 new Point(20, 70),
                 new Point(60, 70)
+            };
+
+            Point[] point3 =
+         {
+                new Point(140, 100),
+                new Point(120, 130),
+                new Point(160, 130)
+            };
+            Point[] point4 =
+         {
+                new Point(140, 140),
+                new Point(120, 110),
+                new Point(160, 110)
             };
 
 
@@ -53,14 +67,23 @@ namespace pic123
             path.AddLine(50, 20, 5, 90);
             path.AddLine(50, 150, 150, 180);
             path.CloseFigure();
+
             e.Graphics.DrawPath(new Pen(Color.FromArgb(255, 255, 0, 0), 2), path);
+
+
+            Sheep(point,point2,path2,e);
+            Sheep(point3, point4, path3, e);
+            e.Graphics.FillPath(solidBrush, path2 );
+
+        }
+        private void Sheep(Point[] point, Point[] point2, GraphicsPath path2, PaintEventArgs e)
+        {
 
             path2.StartFigure();
             path2.AddPolygon(point);
             path2.AddPolygon(point2);
             path2.CloseFigure();
             e.Graphics.DrawPath(new Pen(Color.FromArgb(255, 255, 0, 0), 2), path2);
-
         }
 
     }
