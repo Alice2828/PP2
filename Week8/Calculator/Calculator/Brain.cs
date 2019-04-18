@@ -14,11 +14,11 @@ namespace Calculator
         Compute,
         Compute2,
         Result,
+        
        
     }
 
    public delegate void MyDelegate(string text);
-
    public class Brain
     {
         MyDelegate displayMsg;
@@ -30,9 +30,10 @@ namespace Calculator
         public Brain(MyDelegate displayMsg)
         {
             this.displayMsg = displayMsg;
-            tempNumber = "";
+            tempNumber = "0";
             resultNumber = "";
             operation = "";
+            displayMsg(tempNumber);
         }
 
         public void Process(string msg)
@@ -54,7 +55,8 @@ namespace Calculator
                 case CalcState.Result:
                     Result(false, msg);
                     break;
-               
+                
+
                 default:
                     break;
             }
@@ -64,16 +66,46 @@ namespace Calculator
         {
             if (isInput)
             {
+               
                 calcState = CalcState.Zero;
+                tempNumber = "0";
+                resultNumber = "0";
+                displayMsg(tempNumber);
+
             }
             else
             {
                 if (Rules.IsNonZeroDigit(msg))
                 {
+                    resultNumber = "";
+                    tempNumber = "";
+                    AccumulateDigit(true, msg);
+                }
+                else if (Rules.IsOperator(msg))
+                {
+                    resultNumber = "0";
+                    Compute(true, msg);
+                }
+                else if (Rules.IsEqualSign(msg))
+                {
+                    Result(true, msg);
+                }
+                else if (Rules.IsStrange(msg))
+                {
+                    Compute2(true, msg);
+                }
+                else if (Rules.IsClear(msg))
+                {
+                    Zero(true, msg);
+                }
+                else if (Rules.IsDot(msg))
+                {
+                    
                     AccumulateDigit(true, msg);
                 }
             }
         }
+
         void AccumulateDigit(bool isInput, string msg)
         {
             if (isInput)
@@ -88,6 +120,11 @@ namespace Calculator
                 {
                     AccumulateDigit(true, msg);
                 }
+                else if (Rules.IsDot(msg))
+                {
+
+                    AccumulateDigit(true, msg);
+                }
                 else if (Rules.IsOperator(msg))
                 {
                     Compute(true, msg);
@@ -100,10 +137,15 @@ namespace Calculator
                 {
                     Compute2(true, msg);
                 }
+                else if (Rules.IsClear(msg))
+                {
+                    Zero(true, msg);
+                }
 
-                
+
             }
         }
+
         void Compute(bool isInput, string msg)
         {
             if (isInput)
@@ -131,8 +173,19 @@ namespace Calculator
                 {
                     AccumulateDigit(true, msg);
                 }
+                else if (Rules.IsClear(msg))
+                {
+                    tempNumber = "";
+                    Zero(true, msg);
+                }
+                else if (Rules.IsDot(msg))
+                {
+
+                    AccumulateDigit(true, msg);
+                }
             }
         }
+
         void Compute2(bool isInput, string msg)
         {
             if (isInput)
@@ -146,9 +199,7 @@ namespace Calculator
                 displayMsg(resultNumber);
                 
             }
-            else
-            
-            if (Rules.IsNonZeroDigit(msg))
+            else  if (Rules.IsNonZeroDigit(msg))
             {
                 AccumulateDigit(true, msg);
             }
@@ -168,7 +219,19 @@ namespace Calculator
                 tempNumber = resultNumber;
                 Compute2(true, msg);
             }
+            else if (Rules.IsClear(msg))
+            {
+                operation = "";
+                tempNumber = resultNumber;
+                Zero(true, msg);
+            }
+            else if (Rules.IsDot(msg))
+            {
+
+                AccumulateDigit(true, msg);
+            }
         }
+
     void Result(bool isInput, string msg)
         {
             if (isInput)
@@ -186,7 +249,7 @@ namespace Calculator
                 }
                 else if (Rules.IsZero(msg))
                 {
-                    Zero(true, msg);
+                     Zero(true, msg);
                 }
                 else if (Rules.IsOperator(msg))
                 {
@@ -200,55 +263,34 @@ namespace Calculator
                     tempNumber = resultNumber;
                     Compute2(true, msg);
                 }
-
-            }
-        }
-        void Result2(bool isInput, string msg)
-        {
-            if (isInput)
-            {
-                calcState = CalcState.Result;
-                displayMsg(resultNumber);
-            }
-            else
-            {
-
-                if (Rules.IsNonZeroDigit(msg))
+                else if (Rules.IsClear(msg))
                 {
+                   
+                    Zero(true, msg);
+                }
+                else if (Rules.IsDot(msg))
+                {
+
                     AccumulateDigit(true, msg);
                 }
-                else if (Rules.IsZero(msg))
-                {
-                    Zero(true, msg);
-                }
-                else if (Rules.IsOperator(msg))
-                {
-                    operation = "";
-                    tempNumber = resultNumber;
-                    Compute(true, msg);
-                }
-                else if (Rules.IsStrange(msg))
-                {
-                    operation = "";
-                    tempNumber = resultNumber;
-                    Compute2(true, msg);
-                }
-
             }
         }
+
+       
+
         void Calculate()
         {
             if (operation == "+")
             {
-                resultNumber = (int.Parse(resultNumber) + int.Parse(tempNumber)).ToString();
+                resultNumber = (double.Parse(resultNumber) + double.Parse(tempNumber)).ToString();
             }
             else if (operation == "-")
             {
-                resultNumber = (int.Parse(resultNumber) - int.Parse(tempNumber)).ToString();
+                resultNumber = (double.Parse(resultNumber) - double.Parse(tempNumber)).ToString();
             }
             else if (operation == "*")
             {
-                resultNumber = (int.Parse(resultNumber) * int.Parse(tempNumber)).ToString();
+                resultNumber = (double.Parse(resultNumber) * double.Parse(tempNumber)).ToString();
             }
             else if (operation == "/")
             {
@@ -268,6 +310,17 @@ namespace Calculator
             else if(operation == "±")
             {
                 resultNumber = ((-1) * (double.Parse(resultNumber))).ToString();
+            }
+            else if (operation == "r")
+            {
+                if (double.Parse(resultNumber) != 0)
+                {
+                    resultNumber = (1 / double.Parse(resultNumber)).ToString();
+                }
+                else
+                {
+                    resultNumber = "mistake";
+                }
             }
         }
     }
@@ -304,7 +357,17 @@ namespace Calculator
         }
         public static bool IsStrange(string msg)
         {
-            char[] arr = { '√', '±' };
+            char[] arr = { '√', '±','r' };
+            return Check(arr, msg);
+        }
+        public static bool IsClear(string msg)
+        {
+            char[] arr = { 'C' };
+            return Check(arr, msg);
+        }
+        public static bool IsDot(string msg)
+        {
+            char[] arr = { ',' };
             return Check(arr, msg);
         }
 

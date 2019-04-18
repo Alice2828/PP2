@@ -13,79 +13,107 @@ namespace pic123
 {
     public partial class Form1 : Form
     {
+        System.Timers.Timer timer = new System.Timers.Timer(2000);
+        System.Timers.Timer timer2 = new System.Timers.Timer(2000);
+        Star s1 = new Star(120, 200);
+        Star s2 = new Star(400, 300);
 
         public Form1()
         {
             InitializeComponent();
-            this.BackColor = Color.Blue;
+            this.BackColor = Color.Black;
 
         }
+
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
+       
+            SolidBrush blue = new SolidBrush(Color.Blue);
+            e.Graphics.FillRectangle(blue, 10, 10, 760, 520);
 
-            GraphicsPath path = new GraphicsPath();
-            GraphicsPath path2 = new GraphicsPath();
-            GraphicsPath path3 = new GraphicsPath();
-            Point[] point =
+            CircleStar star1 = new CircleStar(40, 60, e);
+            CircleStar star2 = new CircleStar(60, 300, e);
+            CircleStar star3 = new CircleStar(250, 40, e);
+            CircleStar star4 = new CircleStar(230, 270, e);
+            CircleStar star5 = new CircleStar(410, 80, e);
+            CircleStar star6 = new CircleStar(530, 200, e);
+            CircleStar star7 = new CircleStar(600, 120, e);
+            CircleStar star8 = new CircleStar(600, 300, e);
+
+            int y = 200, x = 300;
+            Point[] spaceship =
             {
-                new Point(40, 60),
-                new Point(20, 90),
-                new Point(60, 90)
+                new Point(x,y),
+                new Point(x+40,y+20),
+                new Point(x+40,y+50),
+                new Point(x,y+70),
+                new Point(x-40,y+50),
+                 new Point(x-40,y+20)
             };
-            Point[] point2 =
-          {
-                new Point(40, 100),
-                new Point(20, 70),
-                new Point(60, 70)
+            SolidBrush yellow = new SolidBrush(Color.Yellow);
+            e.Graphics.FillPolygon(yellow, spaceship);
+
+          
+            
+            x = 360;
+            y = 180;
+            Point[] newstar =
+            {
+                    new Point(x,y),
+                    new Point(x+5,y+25),
+                    new Point(x+20,y+30),
+                    new Point(x+5,y+35),
+                    new Point(x,y+60),
+
+                    new Point(x-5,y+35),
+                    new Point(x-20,y+30),
+                    new Point(x-5,y+25),
+
             };
+            e.Graphics.FillClosedCurve(yellow, newstar);
 
-            Point[] point3 =
-         {
-                new Point(140, 100),
-                new Point(120, 130),
-                new Point(160, 130)
-            };
-            Point[] point4 =
-         {
-                new Point(140, 140),
-                new Point(120, 110),
-                new Point(160, 110)
-            };
+            SolidBrush red = new SolidBrush(Color.Red);
 
+            e.Graphics.FillPath(red, s1.gp1);
+            e.Graphics.FillPath(red, s1.gp2);
+            e.Graphics.FillPath(red, s2.gp1);
+            e.Graphics.FillPath(red, s2.gp2);
 
-            SolidBrush solidBrush = new SolidBrush(Color.FromArgb(255, 250, 200, 0));
+            timer.Elapsed += Timer_Elapsed;
+            timer.Start();
+            timer2.Elapsed += Timer2_Elapsed;
+            timer2.Start();
+          
 
-            e.Graphics.FillEllipse(solidBrush, 30, 30, 20, 20);
-            e.Graphics.FillEllipse(solidBrush, 100, 150, 20, 20);
-            e.Graphics.FillEllipse(solidBrush, 160, 40, 20, 20);
-            e.Graphics.FillEllipse(solidBrush, 300, 190, 20, 20);
-            e.Graphics.FillEllipse(solidBrush, 500, 200, 20, 20);
-            e.Graphics.FillEllipse(solidBrush, 400, 20, 20, 20);
-            e.Graphics.FillEllipse(solidBrush, 470, 60, 20, 20);
-
-            path.StartFigure();
-            path.AddLine(50, 20, 5, 90);
-            path.AddLine(50, 150, 150, 180);
-            path.CloseFigure();
-
-            e.Graphics.DrawPath(new Pen(Color.FromArgb(255, 255, 0, 0), 2), path);
-
-
-            Sheep(point,point2,path2,e);
-            Sheep(point3, point4, path3, e);
-            e.Graphics.FillPath(solidBrush, path2 );
 
         }
-        private void Sheep(Point[] point, Point[] point2, GraphicsPath path2, PaintEventArgs e)
+
+        private void Timer_Elapsed(object sender, EventArgs e)
         {
-
-            path2.StartFigure();
-            path2.AddPolygon(point);
-            path2.AddPolygon(point2);
-            path2.CloseFigure();
-            e.Graphics.DrawPath(new Pen(Color.FromArgb(255, 255, 0, 0), 2), path2);
+           
+            s1.Clear();
+            s1.Move(5);
+            
+           s1.Draw();
+            Invalidate();
+            
         }
 
-    }
 
+        private void Timer2_Elapsed(object sender, EventArgs e)
+        {
+            s2.Clear();
+            s2.Move(-5);
+           
+            s2.Draw();
+           
+        }
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.Width = 800;
+            this.Height = 600;
+        }
+    }
 }
