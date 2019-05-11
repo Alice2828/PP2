@@ -13,18 +13,31 @@ namespace pic123
 {
     class CircleStar
     {
+
+        int x, y;
        
-            Graphics g;
-            int x;
-            int y;
-            SolidBrush brush = new SolidBrush(Color.White);
+        SolidBrush yellow = new SolidBrush(Color.White);
 
             public CircleStar(int x, int y, PaintEventArgs e)
             {
-                this.x = x;
-                this.y = y;
-                g = e.Graphics;
-                g.FillEllipse(brush, x, y, 20, 20);
-            }
+            this.x = x;
+            this.y = y;
+          
+            Point[] newstar =
+            {
+                    new Point(x,y),
+                    new Point(x+5,y+25),
+                    new Point(x+20,y+30),
+                    new Point(x+5,y+35),
+                    new Point(x,y+60),
+
+                    new Point(x-5,y+35),
+                    new Point(x-20,y+30),
+                    new Point(x-5,y+25),
+
+            };
+
+            e.Graphics.FillClosedCurve(yellow, newstar);
+        }
         }
 }

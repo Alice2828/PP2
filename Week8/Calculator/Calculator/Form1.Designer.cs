@@ -48,9 +48,6 @@
             this.button20 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -258,40 +255,10 @@
             this.button18.UseVisualStyleBackColor = true;
             this.button18.Click += new System.EventHandler(this.Btn_Click);
             // 
-            // button19
-            // 
-            this.button19.Location = new System.Drawing.Point(217, 95);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(73, 58);
-            this.button19.TabIndex = 25;
-            this.button19.Text = "p";
-            this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.Btn_Click);
-            // 
-            // button21
-            // 
-            this.button21.Location = new System.Drawing.Point(124, 95);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(74, 58);
-            this.button21.TabIndex = 24;
-            this.button21.Text = "o";
-            this.button21.UseVisualStyleBackColor = true;
-            this.button21.Click += new System.EventHandler(this.Btn_Click);
-            // 
-            // button22
-            // 
-            this.button22.Location = new System.Drawing.Point(33, 95);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(73, 58);
-            this.button22.TabIndex = 23;
-            this.button22.Text = "s";
-            this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.Btn_Click);
-            // 
             // button23
             // 
             this.button23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button23.Location = new System.Drawing.Point(307, 97);
+            this.button23.Location = new System.Drawing.Point(228, 76);
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(74, 58);
             this.button23.TabIndex = 22;
@@ -302,7 +269,7 @@
             // button24
             // 
             this.button24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button24.Location = new System.Drawing.Point(387, 97);
+            this.button24.Location = new System.Drawing.Point(387, 161);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(73, 58);
             this.button24.TabIndex = 26;
@@ -316,9 +283,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 514);
             this.Controls.Add(this.button24);
-            this.Controls.Add(this.button19);
-            this.Controls.Add(this.button21);
-            this.Controls.Add(this.button22);
             this.Controls.Add(this.button23);
             this.Controls.Add(this.button18);
             this.Controls.Add(this.textBox1);
@@ -370,9 +334,6 @@
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Button button24;
     }
